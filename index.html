@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Tech Global Solutions</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Header & Blinking Logo */
+        header {
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            padding: 20px 50px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            animation: blink 3s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffde59;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #8A2387, #E94057, #F27121);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Who We Are Section (with Circular Image) */
+        .who-we-are {
+            padding: 60px 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .who-we-are img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+
+        /* Download Section */
+        .download-app {
+            background-color: #f1f2f6;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .app-links a {
+            display: inline-block;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .app-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2f3640;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Green Tech Global Solutions</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">Who We Are</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <h1>Welcome to Green Tech Global Solutions</h1>
+        <p>Innovative Software, CRM, & Web Development for Your Business</p>
+    </div>
+
+    <!-- Who We Are Section -->
+    <div class="who-we-are" id="about">
+        <h2>Who We Are</h2>
+        <!-- Place a square image in the src below, CSS will make it circular automatically -->
+        <img src="https://via.placeholder.com/400" alt="About Us Image">
+        <p>We are a dedicated team providing smart digital solutions to simplify your business operations.</p>
+    </div>
+
+    <!-- Mobile App Download Section -->
+    <div class="download-app" id="download">
+        <h2>Download Our Mobile App</h2>
+        <p>Manage your business on the go!</p>
+        <div class="app-links">
+            <a href="#">Google Play Store</a>
+            <a href="#">Apple App Store</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Green Tech Global Solutions. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
