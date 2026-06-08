@@ -3,160 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Tech Global Solutions</title>
+    <title>Green Tech Global Solutions | Innovation Amplified</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fafafa;
-            color: #333;
+        :root {
+            --bg-main: #090d16;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --accent-green: #00ffa3;
+            --accent-cyan: #00d2ff;
+            --text-muted: #8f9cae;
         }
 
-        /* Header & Blinking Logo */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Backgrounds */
+        .glow-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+
+        /* Glassmorphism Navbar */
         header {
-            background: linear-gradient(135deg, #00b4db, #0083b0);
-            padding: 20px 50px;
-            color: white;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(9, 13, 22, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            padding: 15px 30px;
+            border-radius: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            animation: blink 3s infinite;
+            z-index: 1000;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ffffff, var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
         nav a {
-            color: white;
+            color: var(--text-muted);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
+            margin-left: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
-        nav a:hover {
-            color: #ffde59;
+        nav a:hover, nav a.active {
+            color: var(--accent-green);
+            text-shadow: 0 0 10px rgba(0, 255, 163, 0.5);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #8A2387, #E94057, #F27121);
-            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 100px 20px;
+            padding: 150px 20px 100px 20px;
+            position: relative;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
 
-        /* Who We Are Section (with Circular Image) */
-        .who-we-are {
-            padding: 60px 20px;
+        /* Advanced Buttons */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            color: #000;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(0, 255, 163, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 255, 163, 0.4);
+        }
+
+        /* Tech Feature Grid */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 50px;
             text-align: center;
-            background: white;
+            letter-spacing: -1px;
         }
 
-        .who-we-are img {
-            width: 250px;
-            height: 250px;
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            border-color: rgba(0, 255, 163, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Circular Image with Cyber Glow */
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .cyber-circle {
+            position: relative;
+            width: 260px;
+            height: 260px;
+        }
+
+        .cyber-circle::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-cyan));
+            animation: rotateGlow 6s linear infinite;
+            z-index: -1;
+        }
+
+        .cyber-circle img {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
+            border: 6px solid var(--bg-main);
         }
 
-        /* Download Section */
-        .download-app {
-            background-color: #f1f2f6;
-            text-align: center;
-            padding: 50px 20px;
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); filter: blur(8px); }
+            100% { transform: rotate(360deg); filter: blur(8px); }
         }
 
-        .app-links a {
-            display: inline-block;
-            background: linear-gradient(135deg, #11998e, #38ef7d);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            margin: 10px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .app-links a:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2f3640;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            header { padding: 15px 20px; }
+            nav a { margin-left: 15px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
+    <div class="glow-bg"></div>
+
+    <!-- Premium Header -->
     <header>
         <div class="logo">Green Tech Global Solutions</div>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#about">Who We Are</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="active">Home</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#about">Identity</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <div class="hero" id="home">
-        <h1>Welcome to Green Tech Global Solutions</h1>
-        <p>Innovative Software, CRM, & Web Development for Your Business</p>
-    </div>
-
-    <!-- Who We Are Section -->
-    <div class="who-we-are" id="about">
-        <h2>Who We Are</h2>
-        <!-- Place a square image in the src below, CSS will make it circular automatically -->
-        <img src="https://via.placeholder.com/400" alt="About Us Image">
-        <p>We are a dedicated team providing smart digital solutions to simplify your business operations.</p>
-    </div>
-
-    <!-- Mobile App Download Section -->
-    <div class="download-app" id="download">
-        <h2>Download Our Mobile App</h2>
-        <p>Manage your business on the go!</p>
-        <div class="app-links">
-            <a href="#">Google Play Store</a>
-            <a href="#">Apple App Store</a>
+    <!-- Hero Showcase -->
+    <section class="hero" id="home">
+        <h1>Next-Gen Digital<br>Architectures</h1>
+        <p>We engineer high-performance software eco-systems, advanced communication CRM systems, and lightweight cross-platform tools customized for modern enterprises.</p>
+        <div class="btn-group">
+            <a href="#solutions" class="btn-primary">Explore Solutions</a>
         </div>
-    </div>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Green Tech Global Solutions. All Rights Reserved.</p>
+    <!-- Solutions / Services Grid -->
+    <section class="section-container" id="solutions">
+        <h2 class="section-title">Core Ecosystems</h2>
+        <div class="grid-layout">
+            <div class="card">
+                <div class="card-icon" style="color: var(--accent-green);">⚡</div>
+                <h3>Campaign Management</h3>
+                <p>Enterprise grade telemetry and logging pipelines optimized for seamless data sync and instant analytics dashboards.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="color: var(--accent-cyan);">💬</div>
+                <h3>Automated CRM Engines</h3>
+                <p>High-reliability bridge modules for instant messaging APIs, handling complex grouping and dynamic communication flows securely.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="color: #a855f7;">📦</div>
+                <h3>Cross-Platform Apps</h3>
+                <p>Converting heavy web applications into highly tuned, lightweight native desktop environments optimized for performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced About Section -->
+    <section class="section-container" id="about" style="border-top: 1px solid var(--border-glass);">
+        <div class="about-wrapper">
+            <h2 class="section-title" style="margin-bottom: 10px;">Who We Are</h2>
+            <div class="cyber-circle">
+                <!-- Place your image here; it auto-syncs into the glowing ring layout -->
+                <img src="https://via.placeholder.com/300" alt="Core Infrastructure">
+            </div>
+            <p style="text-align: center; color: var(--text-muted); max-width: 600px; line-height: 1.8;">
+                Green Tech Global Solutions operates at the intersection of execution speed and absolute reliability. We bypass bulky enterprise bloatware to build swift, secure, and production-ready systems tailored to accelerate operational workflows.
+            </p>
+        </div>
+    </section>
+
+    <!-- Clean Industrial Footer -->
+    <footer style="padding: 40px 20px; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border-glass); font-size: 13px;">
+        <p>&copy; 2026 Green Tech Global Solutions. Engineered with precision.</p>
     </footer>
 
+    <script>
+        // Simple active state toggle for navigation indicators
+        const links = document.querySelectorAll('nav a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
